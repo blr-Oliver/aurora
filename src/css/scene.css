@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#display {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  background-color: black;
+  overflow: hidden;
+}
+
+#stars {
+  position: absolute;
+  transform-origin: 50% 50%;
+  animation-name: rotate-stars;
+  animation-duration: 240s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-color: transparent;
+  z-index: 1;
+}
+
+#stars div {
+  position: absolute;
+  border-radius: 50%;
+}
+
+#stars .xs {
+  width: 1px;
+  height: 1px;
+  margin-left: -0.5px;
+  margin-top: -0.5px;
+  opacity: 0.3;
+  _filter: url(/index.html#star-blink-xs);
+}
+
+#stars .sm {
+  width: 2px;
+  height: 2px;
+  margin-left: -1px;
+  margin-top: -1px;
+  filter: url(#star-blink-sm);
+}
+
+#stars .md {
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  margin-top: -2px;
+  filter: url(#star-blink-md);
+}
+
+#stars .lg {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  filter: url(#star-blink-lg);
+}
+
+#stars .xl {
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+  filter: url(#star-blink-xl);
+}
+
+@keyframes rotate-stars {
+  from { transform:rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+#sunset-holder{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 105%;
+  overflow: visible;
+}
+#sunset{
+  position: absolute;
+  width: 800%;
+  height: 600%;
+  background-color: transparent;
+  background-image: radial-gradient(ellipse 50% 100% at 50% 100%,
+    hsla(45, 100%, 60%, 1) 0%,
+    hsla(25, 80%, 50%, 0.85) 3%,
+    hsla(0, 70%, 55%, 0.7) 6%,
+    hsla(350, 50%, 50%, 0.6) 9%,
+    hsla(340, 50%, 50%, 0.5) 12%,
+    hsla(320, 50%, 50%, 0.45) 15%,
+    hsla(290, 55%, 50%, 0.4) 20%,
+    hsla(270, 65%, 50%, 0.35) 25%,
+    hsla(255, 65%, 50%, 0.33) 30%,
+    hsla(240, 55%, 50%, 0.3) 35%,
+    hsla(235, 70%, 50%, 0.25) 40%,
+    hsla(230, 80%, 50%, 0.2) 50%,
+    hsla(220, 70%, 50%, 0.1) 70%,
+    hsla(210, 50%, 50%, 0) 100%
+  );
+  animation-name: sunset-x, sunset-y, sunset-y-start;
+  animation-duration: 240s, 240s, 60s;
+  animation-delay: 0s, 60s, 0s;
+  animation-timing-function: ease-in-out, ease-in-out, ease-out;
+  animation-iteration-count: infinite, infinite, 1;
+  z-index: 2;
+}
+
+@keyframes sunset-x{
+  0%{ left: -400%; }
+  50%{ left: -300%; }
+  100%{ left: -400%; }
+}
+@keyframes sunset-y{
+  0%{ top: 0; }
+  50%{ top: -600%; }
+  100%{ top: 0; }
+}
+@keyframes sunset-y-start{
+  0%{ top: -300%; }
+  100%{ top: 0; }
+}
+
+#scene {
+  position: relative; /*for z-index*/
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  z-index: 3;
+}
+
+#content {
+  position: relative;
+  width: 60%;
+  margin: 20% auto 0;
+  text-align: justify;
+  text-indent: 1em;
+  z-index: 4;
+  color: white;
+  opacity: 0.7;
+  display: none;
+}
+#aurora path{
+  stroke-width: 0.2;
+  stroke-linecap: round;
+  stroke: lime;
+  fill: none;
+  filter: url(#aurora-glow);
+}

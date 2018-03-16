@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+}
+
+#scene {
+  position: absolute;
+  width: 1280px;
+  height: 1024px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: hsl(210, 100%, 7%);
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Aurora</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<script src="/js/main.js" type="text/javascript" lang="javascript"></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" height="0">
+	<defs>
+        <filter id="star-blink-xs" x="-1" y="-1" width="3" height="3">
+          <feGaussianBlur stddeviation="1" />
+          <feComponentTransfer result="a">
+            <feFuncA type="linear" slope="2" />
+          </feComponentTransfer>
+          <feComposite in="a" in2="SourceGraphic" operator="in" />
+        </filter>
+		<filter id="star-blink-sm" x="-2" y="-2" width="6" height="6">
+			<feGaussianBlur stddeviation="1" />
+			<feMorphology operator="erode" radius="1" />
+			<feComponentTransfer>
+				<feFuncA type="linear" slope="3" />
+			</feComponentTransfer>
+		</filter>
+		<filter id="star-blink-md" x="-4" y="-4" width="12" height="12">
+			<feGaussianBlur stddeviation="2" />
+			<feMorphology operator="erode" radius="2" />
+			<feComponentTransfer>
+				<feFuncA type="linear" slope="4" />
+			</feComponentTransfer>
+		</filter>
+		<filter id="star-blink-lg" x="-8" y="-8" width="24" height="24">
+			<feGaussianBlur stddeviation="4" />
+			<feMorphology operator="erode" radius="5" />
+			<feComponentTransfer>
+				<feFuncA type="linear" slope="6" />
+			</feComponentTransfer>
+		</filter>
+		<filter id="star-blink-xl" x="-16" y="-16" width="48" height="48">
+			<feGaussianBlur stddeviation="8" />
+			<feMorphology operator="erode" radius="10" />
+			<feComponentTransfer>
+				<feFuncA type="linear" slope="8" />
+			</feComponentTransfer>
+		</filter>
+	</defs>
+  </svg>
+  <div id="sky">
+    <div id="_sunset"></div>
+  </div>
+</body>
+</html>

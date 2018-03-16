@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Northern sky</title>
+<link rel="stylesheet" type="text/css" href="/css/scene.css" />
+<script src="/js/dom.js"></script>
+<script src="/js/random.js"></script>
+<script src="/js/scene.js"></script>
+</head>
+<body>
+  <div id="display">
+    <div id="stars"></div>
+    <div id="sunset-holder">
+      <div id="sunset"></div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" id="scene">
+      <defs id="filters">
+        <filter id="star-blink-xs" x="-1" y="-1" width="3" height="3">
+          <feGaussianBlur stddeviation="1" />
+          <feComponentTransfer result="a">
+            <feFuncA type="linear" slope="3" />
+          </feComponentTransfer>
+          <feComposite in="a" in2="SourceGraphic" operator="in" />
+        </filter>
+        <filter id="star-blink-sm" x="-2" y="-2" width="6" height="6">
+          <feGaussianBlur stddeviation="1" />
+          <feMorphology operator="erode" radius="1" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="3" />
+          </feComponentTransfer>
+        </filter>
+        <filter id="star-blink-md" x="-4" y="-4" width="12" height="12">
+          <feGaussianBlur stddeviation="2" />
+          <feMorphology operator="erode" radius="2" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="4" />
+          </feComponentTransfer>
+        </filter>
+        <filter id="star-blink-lg" x="-8" y="-8" width="24" height="24">
+          <feGaussianBlur stddeviation="4" />
+          <feMorphology operator="erode" radius="5" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="6" />
+          </feComponentTransfer>
+        </filter>
+        <filter id="star-blink-xl" x="-16" y="-16" width="48" height="48">
+          <feGaussianBlur stddeviation="8" />
+          <feMorphology operator="erode" radius="10" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="8" />
+          </feComponentTransfer>
+        </filter>
+      </defs>
+      <g id="aurora">
+        <!-- 
+        <path d="M 500 1000 C 600 300 900 200 1400 300" />
+         -->
+      </g>
+      <g id="mountains"></g>
+    </svg>
+  </div>
+  <!-- 
+  <div id="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu augue vel dolor gravida efficitur vel vel sapien. Pellentesque nec ex nec purus porta fringilla. Quisque
+      non eros eu libero sodales interdum vel vestibulum ipsum. In hac habitasse platea dictumst. Nam pharetra aliquet nulla vel rutrum. Fusce sit amet convallis diam. Mauris
+      gravida diam vestibulum nunc hendrerit auctor. Nulla purus diam, aliquam sit amet est et, semper feugiat tortor.</p>
+    <p>Sed pretium dapibus metus sit amet condimentum. Suspendisse facilisis velit libero, ut tincidunt mauris cursus ac. Praesent in dapibus orci. Vestibulum rutrum, urna id
+      sagittis sodales, nisi tortor blandit eros, sagittis tristique ligula diam quis lacus. Nulla sit amet enim ac nisi blandit auctor vitae nec odio. Duis iaculis neque orci, id
+      molestie nulla commodo at. Suspendisse justo urna, gravida posuere pellentesque sit amet, cursus convallis ante. Maecenas scelerisque lectus metus, at pulvinar massa lacinia
+      pretium. Pellentesque ut sollicitudin risus, sed pharetra augue.</p>
+    <p>Quisque cursus, elit vitae porttitor lobortis, erat velit laoreet lectus, nec consequat sem nunc eu ligula. Aenean lorem odio, semper et accumsan ut, efficitur vitae
+      mauris. Suspendisse aliquet tortor quis pretium bibendum. Mauris feugiat molestie molestie. Nunc varius tincidunt eros, eget placerat dolor porttitor non. Integer id molestie
+      justo. Vivamus fermentum ut orci ac maximus. Etiam eleifend, lacus et sodales consectetur, ipsum dui pellentesque neque, egestas fermentum mi elit vitae mi. In pulvinar magna
+      eget nibh tincidunt commodo eu in dolor. Nam posuere auctor nisl, ac elementum turpis tempor sit amet. Aliquam erat volutpat. Nam at sapien fermentum, vehicula ante quis,
+      varius quam. Donec enim mauris, hendrerit vitae tempor vel, vulputate molestie elit. Vivamus venenatis nulla suscipit nisl placerat convallis. Aenean eu lectus pulvinar,
+      bibendum nunc ac, laoreet est.</p>
+    <p>Aenean dapibus, dui ac tempor malesuada, ligula ante pretium neque, at congue sem erat eget metus. Morbi dictum velit sed mauris ultricies, ut efficitur est gravida.
+      Fusce scelerisque vehicula convallis. Aenean sit amet ultrices sem. Mauris sagittis augue eget tellus tempor, a efficitur diam blandit. Etiam id consectetur justo. Etiam arcu
+      dui, dignissim sit amet pulvinar eget, efficitur ac nulla. Nullam nec imperdiet libero.</p>
+    <p>In sagittis pharetra aliquam. Pellentesque volutpat, magna a condimentum lacinia, leo orci congue nisi, pellentesque posuere ipsum turpis in tortor. Suspendisse blandit
+      fringilla est. Integer ut urna ipsum. Vivamus tincidunt at nunc id congue. Fusce vitae justo sem. Aenean varius enim et urna placerat gravida. Fusce aliquet elementum libero,
+      non interdum eros pellentesque eget. Ut imperdiet a nunc id tempor. Vestibulum vel tellus egestas, eleifend felis ac, consequat metus.</p>
+    <p>Vivamus erat nunc, imperdiet id ante nec, tempus pellentesque arcu. Donec eget malesuada justo. Mauris porttitor dignissim tellus. Fusce lobortis ex at massa rhoncus, at
+      cursus justo venenatis. Quisque elit dolor, interdum sed orci id, placerat posuere felis. Aliquam vel enim lorem. Praesent at nunc a urna suscipit molestie. Pellentesque
+      habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    <p>Donec lacus orci, molestie quis lacus a, tincidunt dignissim lorem. Duis porttitor turpis mi, congue fringilla diam dapibus eu. Proin quis justo non nisi.</p>
+  </div>
+   -->
+</body>
+</html>

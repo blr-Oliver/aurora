@@ -1,0 +1,78 @@
+html {
+  background-color: black;
+}
+
+#sky {
+  position: fixed;
+  top: -20%;
+  left: -130%;
+  width: 300%;
+  height: 300%;
+  transform-origin: 50% 50%;
+  animation-name: _sky-rotate;
+  animation-duration: 240s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes sky-rotate {
+  from { transform:rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.star-xs, .star-sm, .star-md, .star-lg, .star-xl {
+  position: absolute;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+}
+
+.star-xs {
+  width: 1px;
+  height: 1px;
+  margin-left: -0.5px;
+  margin-top: -0.5px;
+  filter: url(/stars.html#star-blink-xs);
+}
+
+.star-sm {
+  width: 2px;
+  height: 2px;
+  margin-left: -1px;
+  margin-top: -1px;
+  filter: url(/stars.html#star-blink-sm);
+}
+
+.star-md {
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  margin-top: -2px;
+  filter: url(/stars.html#star-blink-md);
+}
+
+.star-lg {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  filter: url(/stars.html#star-blink-lg);
+}
+
+.star-xl {
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+  filter: url(/stars.html#star-blink-xl);
+}
+
+#sunset {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 50%;
+  top: 50%;
+  margin-left: -40%;
+  margin-top: -40%;
+  background-image: radial-gradient(circle closest-side, yellow  0%, red 20%, rgba(255, 0, 255, 0.8) 40%, rgba(128, 0, 255, 0.6) 60%, rgba(0, 0, 128, 0.4) 80%, rgba(0, 0, 0, 0) 100%);
+}
